@@ -55,8 +55,7 @@ In order to use the login and create user endpoints, you should send the passwor
         };
         var encrypt = new JSEncrypt(options);
         encrypt.setPublicKey(publicKey);
-        value = window.btoa(value);
-        let encrypted: any = encrypt.encrypt(value);
+        let encrypted = encrypt.encrypt(value);
 
         return encrypted;
     };

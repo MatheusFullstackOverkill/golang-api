@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title>JavaScript RSA Encryption</title>
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <!-- You should download the jsencrypt lib -->
+    <script src="bin/jsencrypt.min.js"></script>
+    <script type="text/javascript">
+
+        const public_key = "-----BEGIN PUBLIC KEY-----MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA09ToSYUkOHszY6X6jghHr3s4NzDscTVvQHz9eMZ+P0t1eZUVjJCFpPdoWw89/G/joKnfpJ+zMU3lK3U4ZPFBbpP5xI3S04PhWKs2tzBz6SLDnjxo+NazyjgdcRKHNd/khyCR8oQ4vIk978kdZrbjHUbgDNjTdg5irQxYeGBcqvfkkEXVXMRDFdKRmmkxphc4zz/C/8J+hL1rdSf+B48QDbv8jOTYfYFC+QMIC67dYhVy/7jYMgOx/mGwtvjCkJ/KSAXFB9eonzn9RCCf0EqK6ndj72ML+BtuIRlxy25E4XmnMry/spnC41dxoR3sESaDSO2c1cMzNWJKMxPt2Uhn4ccTNuAPnXofcTzNy6C0spV/T7OW7L40cM01XctSv++8kkWCFq3gdCPR/j69eIl/cVRJQCrmBFjjX4Yk/8hymZMVdQbTkmMQyznzQugRWEhvwroPcc1rjxpDI9EvlHLuaOEeU06f+RpasIMnT+/JLTqapHZqQGUJVt/AOBoHfK7FJv/DsnacbiGMJ6mvIFMu+MPa+6QjcSIq4XktyAE4gPF3RlSRqFU7zRVcKp0ux1OyNoSNbjq8sqMO5CuXdx4fCSfVxsbARVqPiiRx4v5r7fM/17WQa05AqymIbTwlHgebuCwpHn2a9PbCLkPf4Jg7+RkXDe7KHyFZAj6YwRSviAUCAwEAAQ==-----END PUBLIC KEY-----"
+
+      // Call this code when the page is done loading.
+      $(function() {
+
+        const encrypt = (value) => {
+            const options = {
+                default_key_size: "4096",
+                default_public_exponent: "010001",
+                log: false
+            };
+            var encrypt = new JSEncrypt(options);
+            encrypt.setPublicKey(public_key);
+            let encrypted = encrypt.encrypt(value);
+
+            return encrypted;
+        };
+
+        fetch('http://localhost:5000/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: 'user@gmail.com',
+                password: encrypt('password0123')
+            })
+        })
+      });
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
