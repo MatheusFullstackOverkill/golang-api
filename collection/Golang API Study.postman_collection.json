@@ -1,0 +1,353 @@
+{
+	"info": {
+		"_postman_id": "31c9270a-7fe3-4501-b37d-5fc3bdbaeda0",
+		"name": "Golang API Study",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12444341"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "matheus@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "pass",
+									"value": "o",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/users?limit=10&offset=0",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrive",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "pass",
+									"value": "o",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/users/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "alexander0123@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "user_picture",
+									"type": "file",
+									"src": "/home/magico/Downloads/eva_01_paiting.jpg",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/users/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "alexander@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "user_picture",
+									"type": "file",
+									"src": "/home/magico/Downloads/eva_01_paiting.jpg"
+								},
+								{
+									"key": "password",
+									"value": "jKvfQ6qhUkwXK2BsiStYhysdV4w60szyzzq5HEnaIS/6I7uWb0GS64CxsInZRqiIEvL0H1F+vO9SkWzKoguSNEZNNrcgDS2EMAdVE9QGSi+uS+V2b5GhcHTlYwPq2AqjZdGY15GNOfgj33nZwwtSHN8ifogW4c2Umd6h5u6KLZBBtHJK/e2nDq5sDzgZbKg3tG+blML4Ry2XV/muoY+1Cu8BW7NXSC8ypnVpZnZiPCtUllITcAtayoseAS4vXMKz4ZRf59mpP8fmy1dxCQ87cOch31xt7e+g9KggF3zDLp4MJk9Xk+kJqTfIR2TWFUCNRzgKPwY7kbCAZr1KLCFOvQYifasuTS/Wk4RZ2DQjB0j7/2vb384yzeSMyZH1i7/U40Jj+dPpWxrkooyY6KfdFNNSeB2lHWbhE2cUckNGXGuEfVQel/M+r5sse3f077dmK/CpvPwOQGt6UwcAeWOf3idzvwHwd8OOV6m0pHecJYcqjIHkTlZfXm+/sby8kkTfi9ptA4Cam3YavnimADrFg2tN4K+nRa2vK/u0loyCxd9d63UR2H3s1GR/kMfgxUpvGFyFMb+HuVGWAQbo/oRbeOk7unrB/cO4PW/tM5wTQO0+gwYgKkMElLh3QSX3kmpa/oeNhJRoaKlv3Q5eCHX0k2NBGKm5111DaWKf77NyoOw=",
+									"type": "text"
+								},
+								{
+									"key": "fullname",
+									"value": "Alexandrer Johnson",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{host}}/api/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "matheus@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "pass",
+									"value": "o",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/api/users/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"2"
+							],
+							"query": [
+								{
+									"key": "A",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"mathss@gmail.coms\",\n    \"password\": \"jKvfQ6qhUkwXK2BsiStYhysdV4w60szyzzq5HEnaIS/6I7uWb0GS64CxsInZRqiIEvL0H1F+vO9SkWzKoguSNEZNNrcgDS2EMAdVE9QGSi+uS+V2b5GhcHTlYwPq2AqjZdGY15GNOfgj33nZwwtSHN8ifogW4c2Umd6h5u6KLZBBtHJK/e2nDq5sDzgZbKg3tG+blML4Ry2XV/muoY+1Cu8BW7NXSC8ypnVpZnZiPCtUllITcAtayoseAS4vXMKz4ZRf59mpP8fmy1dxCQ87cOch31xt7e+g9KggF3zDLp4MJk9Xk+kJqTfIR2TWFUCNRzgKPwY7kbCAZr1KLCFOvQYifasuTS/Wk4RZ2DQjB0j7/2vb384yzeSMyZH1i7/U40Jj+dPpWxrkooyY6KfdFNNSeB2lHWbhE2cUckNGXGuEfVQel/M+r5sse3f077dmK/CpvPwOQGt6UwcAeWOf3idzvwHwd8OOV6m0pHecJYcqjIHkTlZfXm+/sby8kkTfi9ptA4Cam3YavnimADrFg2tN4K+nRa2vK/u0loyCxd9d63UR2H3s1GR/kMfgxUpvGFyFMb+HuVGWAQbo/oRbeOk7unrB/cO4PW/tM5wTQO0+gwYgKkMElLh3QSX3kmpa/oeNhJRoaKlv3Q5eCHX0k2NBGKm5111DaWKf77NyoOw=\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "token",
+			"value": "token"
+		}
+	]
+}
