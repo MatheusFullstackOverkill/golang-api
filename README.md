@@ -15,9 +15,21 @@ The pourpose of this project was to study main API concepts in Golang, the ones 
 - PostgreSQL (tested version: 12.22)
 
 ## Setup and running steps
-- ***create the database and run the contents of the migrations file: migrations/migrations.sql***
-- ***make generate_keys***
-    to generate the keys for encyption and decryption, mainly for the login password (in a frontend you would use the public key it's for encryption before sending the login request)
-- ***go mod tidy***
-- ***copy .env.example to .env and set the environment variables***
-- ***make run_api***
+- Create the database and run the contents of the migrations file: *migrations/migrations.sql*
+
+- Generate the keys for encyption and decryption
+    ```
+    make generate_keys
+    ```
+    It's mainly for the login password (in a frontend you would use the public key for it's encryption before sending the login request)
+
+- Install the dependencies
+    ```
+    go mod tidy
+    ```
+- Copy .env.example to .env and set the environment variables
+
+- Run the project
+    ```
+    make run_api
+    ```
