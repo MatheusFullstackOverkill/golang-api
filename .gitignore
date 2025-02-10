@@ -1,3 +1,6 @@
 uploads
 go.sum
 .env
+private.pem
+public.pem
+client_example/bin

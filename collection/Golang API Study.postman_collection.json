@@ -34,11 +34,12 @@
 							]
 						},
 						"url": {
-							"raw": "{{host}}/users?limit=10&offset=0",
+							"raw": "{{host}}/api/users?limit=10&offset=0",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
+								"api",
 								"users"
 							],
 							"query": [

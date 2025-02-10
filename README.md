@@ -1,4 +1,4 @@
-# Goland API Study
+# Golang API Study
 
 The pourpose of this project was to study main API concepts in Golang, the ones that I focused was:
 
@@ -12,8 +12,9 @@ The pourpose of this project was to study main API concepts in Golang, the ones 
 
 ## System Requirements
 
-- Goland (tested version: 1.22.5) 
+- Golang (tested version: 1.22.5) 
 - PostgreSQL (tested version: 12.22)
+- Enable make command
 
 ## Setup and running steps
 
@@ -24,6 +25,8 @@ The pourpose of this project was to study main API concepts in Golang, the ones 
     make generate_keys
     ```
     It's mainly for the login password (in a frontend you would use the public key for it's encryption before sending the login request)
+
+    The private.pem should start with '-----BEGIN RSA PRIVATE KEY-----', if you have problems generating the keys in this format, you could you use a website like https://cryptotools.net/rsagen, and copy the generated contents in to the private.pem and public.pem files.
 
 - Install the dependencies
     ```
