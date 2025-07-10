@@ -7,28 +7,9 @@
     <script src="bin/jsencrypt.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/node-forge@1.0.0/dist/forge.min.js"></script>
     <script type="text/javascript">
-
       const public_key = "-----BEGIN PUBLIC KEY-----MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAzYJ0cfSpqkdkYV+SI05W9gJO/n5z9zE7ZsMuAKtsLqF9yC1DSz4jrAPzuzmxv3Mg3bSKogO1w00Prl+aGCxM9ufXOumI/KwTPlepBALQoWlYwL7pVTxoX8HaeE6Qyr+/GYF3TIQ74jRSjFDtke7SBd0nkdItaOmCNmCbeYMycTJxSakGWKAVQ8TDTgDaeeGmSdbhik8a8oABEj4wsazI0oV91b2FCEciEsUfHmtfEqQKk6mXD8+26LiYPdH23dugrKRVLC4ximtqNyXfp97Mxvs+0zBf5J1I498AEdKAc9V+7pZRrhIvo4w3il3rEgqZxx3LHTAdY0PPNT89ABeyPbHJO0CVn7saqX3fJFNyrNvORFBZMR4eQad9ZeIHzyF4lY5qE/B+SHerXrrFU76V/x6LjibieLVlPYcW0RbOmV6kV0br9YNZmqJsEBkSbvaGD2pIGs9Q6GYBRl2LAoVh9KPZlcaBJ+5OcYPNgMR9sAWSSeUZjLw7Nb+nFdj7vQoGrTq+kAkL3fE2hzEvH5yChoCaHiyyp9rZi1H+3gLFupWqMWKIoJnrCf0xvF5277zvQ5QVTDdi6n1USWJpzr6XCvJQAmWuGiyJSgQ205XtSvNfpaFbFeEyh963m8E0N/PJb20IHo+oc65Ja5z7FDtEvQDbC/IQ9k/hHgJYCEbUWFECAwEAAQ==-----END PUBLIC KEY-----"
 
-      // Call this code when the page is done loading.
       $(function() {
-
-        // function RSAOAEPPadding(pwd) {
-        //   const publicKeyPem = public_key
-        //   const publicKey = forge.pki.publicKeyFromPem(publicKeyPem)
-        //   console.log(publicKeyPem)
-        //   console.log(publicKey)
-        //   const encryptedBytes = publicKey.encrypt(pwd, 'RSA-OAEP', {
-        //     md: forge.md.sha1.create()
-        //   })
-        //   console.log(encryptedBytes)
-        //   // Convert the encrypted bytes to a Base64-encoded string
-        //   const encryptedBase64 = forge.util.encode64(encryptedBytes)
-        //   return encryptedBase64
-        // }
-
-        // console.log(RSAOAEPPadding('password0123'))
-
         const encrypt = (value) => {
             const options = {
                 default_key_size: "4096",

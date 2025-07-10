@@ -20,9 +20,6 @@ func ProtectedHandler(c *fiber.Ctx) error {
 		if endpointPath == route {
 			for _, method := range methods {
 				if requestMethod == method {
-
-					fmt.Println("Ignore validation")
-
 					return c.Next()
 				}
 			}
@@ -45,8 +42,6 @@ func ProtectedHandler(c *fiber.Ctx) error {
 	if err != nil {
 		return c.Status(401).JSON(map[string]string{"error": "Invalid token"})
 	}
-
-	fmt.Println("Welcome to the the protected area")
 
 	return c.Next()
 }

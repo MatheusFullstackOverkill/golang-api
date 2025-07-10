@@ -1,4 +1,8 @@
-CREATE TABLE "user" (
+-- +goose Up
+-- +goose StatementBegin
+SELECT 'up SQL query';
+-- +goose StatementEnd
+CREATE TABLE IF NOT EXISTS "user" (
     user_id SERIAL PRIMARY KEY,
     fullname VARCHAR(150) NOT NULL,
     email VARCHAR NOT NULL,
@@ -8,3 +12,8 @@ CREATE TABLE "user" (
     updated_at TIMESTAMP DEFAULT NOW(),
     deleted_at TIMESTAMP
 );
+-- +goose Down
+-- +goose StatementBegin
+SELECT 'down SQL query';
+-- +goose StatementEnd
+DROP TABLE "user";

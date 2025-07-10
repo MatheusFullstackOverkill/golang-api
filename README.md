@@ -1,6 +1,6 @@
 # Golang API Study
 
-The pourpose of this project was to study main API concepts in Golang, the ones that I focused was:
+The purpose of this project was to study main API concepts in Golang, the ones that I focused was:
 
 - CRUD Endpoints
 - Database Conection
@@ -10,41 +10,74 @@ The pourpose of this project was to study main API concepts in Golang, the ones 
 - Clear project structure
 - Work with environment variables
 
-## System Requirements
+## Setup and running steps
+
+### With Docker
+- Install Docker and Docker Compose, If you don't already have them installed
+
+- Clone the repository
+
+    ```
+    git clone https://github.com/MatheusFullstackOverkill/golang-api
+    ```
+
+- Run the docker-compose file with the command:
+
+    ```
+    cd golang-api && docker-compose up
+    ```
+
+### Without Docker
+
+#### System Requirements
 
 - Golang (tested version: 1.22.5) 
 - PostgreSQL (tested version: 12.22)
+- openssl (tested version: 3.0.8)
 - Enable make command
 
-## Setup and running steps
-
-- Create the database and run the contents of the migrations file: *migrations/migrations.sql*
-
-- Generate the keys for encyption and decryption
+#### Steps
+- Access folder
+    ```
+    cd golang-api
+    ```
+- Generate the keys for encyption and decryption of password in requests (optional, I already provided the keys for testing purposes)
     ```
     make generate_keys
     ```
-    It's mainly for the login password (in a frontend you would use the public key for it's encryption before sending the login request)
 
-    The private.pem should start with '-----BEGIN RSA PRIVATE KEY-----', if you have problems generating the keys in this format, you could you use a website like https://cryptotools.net/rsagen, and copy the generated contents in to the private.pem and public.pem files.
+    The private.pem should start with '-----BEGIN RSA PRIVATE KEY-----'. If you have problems generating the keys, you could use a website like https://cryptotools.net/rsagen, setting the key length to 4096, and copy the generated contents in to the private.pem and public.pem files.
 
 - Install the dependencies
     ```
-    go mod tidy
+    go mod tidy && go install github.com/pressly/goose/v3/cmd/goose@latest
     ```
 
 - Copy .env.example to .env and set the environment variables
 
+- Run the migrations
+    ```
+    goose up
+    ```
+
 - Run the project
-    ```
-    make run_api
-    ```
+    - With make
+        ```
+        make run_api
+        ```
+
+    - Without make
+        ```
+        go run .
+        ```
 
 - Import the collection file: *collection/Golang API Study.postman_collection.json* to to see how to use the endpoints
 
 ## How to encrypt the password in the client side
 
-In order to use the login and create user endpoints, you should send the password encrypted in the body, this is one example of how you would go about it:
+In order to use the login and create user endpoints, you should send the password encrypted in the body. The Postman collection already has an encrypted key for testing purposes, and in the *client_example* folder there is an example of encryption, but here are more details:
+
+- Generate the keys for encyption and decryption, you can check above how to do it
 
 - Download the lib [JSEncrypt](https://www.npmjs.com/package/jsencrypt)
 

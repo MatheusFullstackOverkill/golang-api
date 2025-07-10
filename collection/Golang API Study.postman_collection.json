@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "31c9270a-7fe3-4501-b37d-5fc3bdbaeda0",
+		"_postman_id": "3855a27b-db81-4f80-94f8-09e72e348681",
 		"name": "Golang API Study",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "12444341"
@@ -15,16 +15,21 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{golang_api_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
-								{
-									"key": "email",
-									"value": "matheus@gmail.com",
-									"type": "text"
-								},
 								{
 									"key": "pass",
 									"value": "o",
@@ -34,9 +39,9 @@
 							]
 						},
 						"url": {
-							"raw": "{{host}}/api/users?limit=10&offset=0",
+							"raw": "{{golang_api_host}}/api/users?limit=10&offset=0",
 							"host": [
-								"{{host}}"
+								"{{golang_api_host}}"
 							],
 							"path": [
 								"api",
@@ -67,7 +72,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{token}}",
+									"value": "{{golang_api_token}}",
 									"type": "string"
 								}
 							]
@@ -86,9 +91,9 @@
 							]
 						},
 						"url": {
-							"raw": "{{host}}/api/users/1",
+							"raw": "{{golang_api_host}}/api/users/1",
 							"host": [
-								"{{host}}"
+								"{{golang_api_host}}"
 							],
 							"path": [
 								"api",
@@ -107,7 +112,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{token}}",
+									"value": "{{golang_api_token}}",
 									"type": "string"
 								}
 							]
@@ -121,19 +126,13 @@
 									"key": "email",
 									"value": "alexander0123@gmail.com",
 									"type": "text"
-								},
-								{
-									"key": "user_picture",
-									"type": "file",
-									"src": "/home/magico/Downloads/eva_01_paiting.jpg",
-									"disabled": true
 								}
 							]
 						},
 						"url": {
-							"raw": "{{host}}/api/users/1",
+							"raw": "{{golang_api_host}}/api/users/1",
 							"host": [
-								"{{host}}"
+								"{{golang_api_host}}"
 							],
 							"path": [
 								"api",
@@ -148,14 +147,7 @@
 					"name": "Create",
 					"request": {
 						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
+							"type": "noauth"
 						},
 						"method": "POST",
 						"header": [],
@@ -164,17 +156,18 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "alexander@gmail.com",
+									"value": "alexander233@gmail.com",
 									"type": "text"
 								},
 								{
 									"key": "user_picture",
 									"type": "file",
-									"src": "/home/magico/Downloads/eva_01_paiting.jpg"
+									"src": [],
+									"disabled": true
 								},
 								{
 									"key": "password",
-									"value": "jKvfQ6qhUkwXK2BsiStYhysdV4w60szyzzq5HEnaIS/6I7uWb0GS64CxsInZRqiIEvL0H1F+vO9SkWzKoguSNEZNNrcgDS2EMAdVE9QGSi+uS+V2b5GhcHTlYwPq2AqjZdGY15GNOfgj33nZwwtSHN8ifogW4c2Umd6h5u6KLZBBtHJK/e2nDq5sDzgZbKg3tG+blML4Ry2XV/muoY+1Cu8BW7NXSC8ypnVpZnZiPCtUllITcAtayoseAS4vXMKz4ZRf59mpP8fmy1dxCQ87cOch31xt7e+g9KggF3zDLp4MJk9Xk+kJqTfIR2TWFUCNRzgKPwY7kbCAZr1KLCFOvQYifasuTS/Wk4RZ2DQjB0j7/2vb384yzeSMyZH1i7/U40Jj+dPpWxrkooyY6KfdFNNSeB2lHWbhE2cUckNGXGuEfVQel/M+r5sse3f077dmK/CpvPwOQGt6UwcAeWOf3idzvwHwd8OOV6m0pHecJYcqjIHkTlZfXm+/sby8kkTfi9ptA4Cam3YavnimADrFg2tN4K+nRa2vK/u0loyCxd9d63UR2H3s1GR/kMfgxUpvGFyFMb+HuVGWAQbo/oRbeOk7unrB/cO4PW/tM5wTQO0+gwYgKkMElLh3QSX3kmpa/oeNhJRoaKlv3Q5eCHX0k2NBGKm5111DaWKf77NyoOw=",
+									"value": "RqcfWPM5YXvwLx0MRjcXdXHo+DyIuU7k/ENatYwfvGCgsopHjA1bc4fE7sSsRoGsLykjtSMcZdgrn4LVSUQifGfxq48+DSdKdWPp8oilN7yEH7nxw2Kub/A6Y/+KrCl3REthJ0QgqgJeheIMRqrdr5syeXmkE67bNtK2dg148uaOGIHYjNQjGm6N6bxupKuRrYEfgXu+TVIQpXEZFBxiSB+KLhg/IE2EMM/ypAQV0a4NpcvowaFLbOfNPSTdfzIkDyMOhDnvsaIReYQtAnsziI+BOL3XYzTlKjy5Y0yQiarQK12OD7d9f90dmdryXCNRJ1mHyMXkT36EUY9mxae+rlGP/bghHJ5y9+irEpY4Z2Rpa/jN+5bfoSePCNzGDMWv9DyABWUayHJoAcv+BiSkdKXS5/9NNJ0cY/9KoCehRf5+h5EbYr9v7JAcbdCP2HLiFSKcMeezISyRfLHrl88piSI9Po9BfPwbmBVqpCnzLkftHerdM5yN1GlpVyUWQBMg4XUsTmekP0vAws49L3o+JNxHQxrTG/7SS1yg9TRrmETO6P5w9D4YsH788gZcz+Q1UwuPE6KveBYqJ+eVzEZiZMdPQIs4WbvIoKljuIlJrzT/Qqnow06xb5I/giumElyG9lQ678RldEeRkuH2b7z73RZAvlgdF8E1wIMrGLCCbEc=",
 									"type": "text"
 								},
 								{
@@ -185,44 +178,9 @@
 							]
 						},
 						"url": {
-							"raw": "{{host}}/api/users",
+							"raw": "{{golang_api_host}}/api/users",
 							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"api",
-								"users"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "List",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "{{host}}/api/users",
-							"host": [
-								"{{host}}"
+								"{{golang_api_host}}"
 							],
 							"path": [
 								"api",
@@ -240,7 +198,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{token}}",
+									"value": "{{golang_api_token}}",
 									"type": "string"
 								}
 							]
@@ -251,11 +209,6 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "email",
-									"value": "matheus@gmail.com",
-									"type": "text"
-								},
-								{
 									"key": "pass",
 									"value": "o",
 									"type": "text",
@@ -264,9 +217,9 @@
 							]
 						},
 						"url": {
-							"raw": "{{host}}/api/users/2",
+							"raw": "{{golang_api_host}}/api/users/2",
 							"host": [
-								"{{host}}"
+								"{{golang_api_host}}"
 							],
 							"path": [
 								"api",
@@ -296,7 +249,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"mathss@gmail.coms\",\n    \"password\": \"jKvfQ6qhUkwXK2BsiStYhysdV4w60szyzzq5HEnaIS/6I7uWb0GS64CxsInZRqiIEvL0H1F+vO9SkWzKoguSNEZNNrcgDS2EMAdVE9QGSi+uS+V2b5GhcHTlYwPq2AqjZdGY15GNOfgj33nZwwtSHN8ifogW4c2Umd6h5u6KLZBBtHJK/e2nDq5sDzgZbKg3tG+blML4Ry2XV/muoY+1Cu8BW7NXSC8ypnVpZnZiPCtUllITcAtayoseAS4vXMKz4ZRf59mpP8fmy1dxCQ87cOch31xt7e+g9KggF3zDLp4MJk9Xk+kJqTfIR2TWFUCNRzgKPwY7kbCAZr1KLCFOvQYifasuTS/Wk4RZ2DQjB0j7/2vb384yzeSMyZH1i7/U40Jj+dPpWxrkooyY6KfdFNNSeB2lHWbhE2cUckNGXGuEfVQel/M+r5sse3f077dmK/CpvPwOQGt6UwcAeWOf3idzvwHwd8OOV6m0pHecJYcqjIHkTlZfXm+/sby8kkTfi9ptA4Cam3YavnimADrFg2tN4K+nRa2vK/u0loyCxd9d63UR2H3s1GR/kMfgxUpvGFyFMb+HuVGWAQbo/oRbeOk7unrB/cO4PW/tM5wTQO0+gwYgKkMElLh3QSX3kmpa/oeNhJRoaKlv3Q5eCHX0k2NBGKm5111DaWKf77NyoOw=\"\n}",
+							"raw": "{\n    \"email\": \"mathss@gmail.coms\",\n    \"password\": \"RqcfWPM5YXvwLx0MRjcXdXHo+DyIuU7k/ENatYwfvGCgsopHjA1bc4fE7sSsRoGsLykjtSMcZdgrn4LVSUQifGfxq48+DSdKdWPp8oilN7yEH7nxw2Kub/A6Y/+KrCl3REthJ0QgqgJeheIMRqrdr5syeXmkE67bNtK2dg148uaOGIHYjNQjGm6N6bxupKuRrYEfgXu+TVIQpXEZFBxiSB+KLhg/IE2EMM/ypAQV0a4NpcvowaFLbOfNPSTdfzIkDyMOhDnvsaIReYQtAnsziI+BOL3XYzTlKjy5Y0yQiarQK12OD7d9f90dmdryXCNRJ1mHyMXkT36EUY9mxae+rlGP/bghHJ5y9+irEpY4Z2Rpa/jN+5bfoSePCNzGDMWv9DyABWUayHJoAcv+BiSkdKXS5/9NNJ0cY/9KoCehRf5+h5EbYr9v7JAcbdCP2HLiFSKcMeezISyRfLHrl88piSI9Po9BfPwbmBVqpCnzLkftHerdM5yN1GlpVyUWQBMg4XUsTmekP0vAws49L3o+JNxHQxrTG/7SS1yg9TRrmETO6P5w9D4YsH788gZcz+Q1UwuPE6KveBYqJ+eVzEZiZMdPQIs4WbvIoKljuIlJrzT/Qqnow06xb5I/giumElyG9lQ678RldEeRkuH2b7z73RZAvlgdF8E1wIMrGLCCbEc=\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -304,9 +257,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/api/login",
+							"raw": "{{golang_api_host}}/api/login",
 							"host": [
-								"{{host}}"
+								"{{golang_api_host}}"
 							],
 							"path": [
 								"api",
@@ -343,12 +296,14 @@
 	],
 	"variable": [
 		{
-			"key": "host",
-			"value": "http://localhost:3000"
+			"key": "golang_api_host",
+			"value": "http://localhost:5000",
+			"type": "string"
 		},
 		{
-			"key": "token",
-			"value": "token"
+			"key": "golang_api_token",
+			"value": "token",
+			"type": "string"
 		}
 	]
 }

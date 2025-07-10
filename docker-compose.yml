@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  database:
+    container_name: golang_api_study_database
+    image: postgres:12
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: doctorwho3210
+      POSTGRES_DB: golang_api_study
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d golang_api_study"]
+      start_period: 10s
+      interval: 10s
+      timeout: 10s
+      retries: 5
+  backend:
+    container_name: golang_api_study_backend
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      DATABASE_URL: "host=database user=postgres password=doctorwho3210 dbname=golang_api_study port=5432"
+      PORT: 5000
+      GOOSE_DRIVER: postgres
+      GOOSE_DBSTRING: postgresql://postgres:doctorwho3210@database:5432/golang_api_study
+      GOOSE_MIGRATION_DIR: ./migrations
+      GOOSE_TABLE: public.migrations
+    depends_on:
+      database:
+        condition: service_healthy
+    command: sh -c "goose up && go run . "
+
+volumes:  
+  pgdata: {}
